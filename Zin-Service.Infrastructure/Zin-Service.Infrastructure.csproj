@@ -80,7 +80,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AutofacConfiguration.cs" />
+    <Compile Include="AutofacConfiguration\IDetermineInfrastructureAssembly.cs" />
+    <Compile Include="AutofacConfiguration\InfrastructureModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -95,10 +96,6 @@
     <ProjectReference Include="..\Zin-Service.Service\Zin-Service.Service.csproj">
       <Project>{7B736BBD-F884-47F2-B1D9-4F0666639364}</Project>
       <Name>Zin-Service.Service</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Zin-Service.WebUI\Zin-Service.WebUI.csproj">
-      <Project>{AD6FFE8B-A17B-4854-816B-4613C5DFD7CD}</Project>
-      <Name>Zin-Service.WebUI</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
