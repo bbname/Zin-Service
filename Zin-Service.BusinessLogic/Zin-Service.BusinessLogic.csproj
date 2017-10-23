@@ -45,7 +45,7 @@
   <ItemGroup>
     <Compile Include="AutofacConfiguration\BusinessLogicModule.cs" />
     <Compile Include="AutofacConfiguration\IDetermineBusinessLogicAssembly.cs" />
-    <Compile Include="Class1.cs" />
+    <Compile Include="ConverterFileToBytes\IConvertFileToBytes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

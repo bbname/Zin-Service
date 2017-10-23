@@ -45,8 +45,12 @@
   <ItemGroup>
     <Compile Include="AutofacConfiguration\IDetermineServiceAssembly.cs" />
     <Compile Include="AutofacConfiguration\ServiceModule.cs" />
-    <Compile Include="Class1.cs" />
+    <Compile Include="Download\DownloadImage.cs" />
+    <Compile Include="Download\IDownloadImage.cs" />
+    <Compile Include="ImageFile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Upload\IUploadImage.cs" />
+    <Compile Include="Upload\UploadImage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
