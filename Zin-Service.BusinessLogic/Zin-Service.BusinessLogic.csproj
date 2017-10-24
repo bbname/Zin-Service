@@ -45,11 +45,16 @@
   <ItemGroup>
     <Compile Include="AutofacConfiguration\BusinessLogicModule.cs" />
     <Compile Include="AutofacConfiguration\IDetermineBusinessLogicAssembly.cs" />
-    <Compile Include="ConverterFileToBytes\IConvertFileToBytes.cs" />
+    <Compile Include="ConverterImageToBytes\IConvertImageToBytes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="GarbrageCollectorImage\" />
+    <Folder Include="ReaderImageFileInfo\" />
+    <Folder Include="WriterImageFileInfo\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
