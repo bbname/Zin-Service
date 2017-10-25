@@ -1,15 +1,9 @@
 ﻿using System;
-using System.CodeDom;
 
 namespace Zin_Service.Service.Upload
 {
-    public class UploadImage : ImageFile, IUploadImage
+    public sealed class UploadImage : ImageFile, IUploadImage
     {
-        public override string Guid { get; set; }
-        public override string Extension { get; set; }
-        public override byte[] FileContent { get; set; }
-        public DateTime UploadedTime { get; set; }
-
         public UploadImage(string guid, string extension, byte[] fileContent, DateTime uploadedTime)
         {
             Guid = guid;
@@ -17,5 +11,10 @@ namespace Zin_Service.Service.Upload
             FileContent = fileContent;
             UploadedTime = uploadedTime;
         }
+
+        public override string Guid { get; set; }
+        public override string Extension { get; set; }
+        public override byte[] FileContent { get; set; }
+        public DateTime UploadedTime { get; set; }
     }
 }
