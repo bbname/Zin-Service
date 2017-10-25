@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="GarbrageCollectorImage\" />
+    <Folder Include="GeneratorFilterImage\" />
     <Folder Include="ReaderImageFileInfo\" />
     <Folder Include="WriterImageFileInfo\" />
   </ItemGroup>
