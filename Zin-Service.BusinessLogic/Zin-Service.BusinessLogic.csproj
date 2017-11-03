@@ -47,15 +47,20 @@
     <Compile Include="AutofacConfiguration\IDetermineBusinessLogicAssembly.cs" />
     <Compile Include="ConverterImageToBytes\IConvertImageToBytes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReaderImageFileInfo\IReadGeneratedImageFileInfo.cs" />
+    <Compile Include="ReaderImageFileInfo\IReadImageFileInfo.cs" />
+    <Compile Include="ReaderImageFileInfo\IReadUploadedImageFileInfo.cs" />
+    <Compile Include="WriterImageFileInfo\IWriteGeneratedImageFileInfo.cs" />
+    <Compile Include="WriterImageFileInfo\IWriteImageFileInfo.cs" />
+    <Compile Include="WriterImageFileInfo\IWriteUploadedImageFileInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="GarbrageCollectorImage\" />
-    <Folder Include="GeneratorFilterImage\" />
-    <Folder Include="ReaderImageFileInfo\" />
-    <Folder Include="WriterImageFileInfo\" />
+    <Folder Include="GeneratorImageFilter\" />
+    <Folder Include="GeneratorImageName\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
