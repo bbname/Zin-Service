@@ -1,0 +1,21 @@
+﻿<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#btn-upload').change(function () {
+            alert('test');
+            $('#form-upload').submit();
+        });
+
+    });
+</script>
+
+@using (Html.BeginForm("UploadImage", "Image", FormMethod.Post, new { id="form-upload", enctype = "multipart/form-data"}))
+{
+    <label id="btn-upload" class="btn btn-success">
+        <span class="glyphicon glyphicon-file"></span> Wybierz
+        <input type="file" name="uploadedFile" id="uploadedFile" hidden>
+    </label>
+    <div class="col-xs-12 col-sm-12" id="uploaded-image">
+        
+    </div>
+}
