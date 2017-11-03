@@ -4,6 +4,6 @@ namespace Zin_Service.BusinessLogic.ConverterImageToBytes
 {
     public interface IConvertImageToBytes
     {
-        byte[] GetBytesFromFile(string fileGuid);
+        byte[] GetBytesFromFile(string fileName);
     }
 }
