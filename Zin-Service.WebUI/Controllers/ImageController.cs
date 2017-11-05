@@ -8,9 +8,8 @@ namespace Zin_Service.WebUI.Controllers
     {
 
         [HttpPost]
-        public void UploadImage(HttpPostedFileBase uploadedFile)
+        public ActionResult UploadImage(HttpPostedFileBase uploadedFile)
         {
-
             throw new NotImplementedException();
         }
 
