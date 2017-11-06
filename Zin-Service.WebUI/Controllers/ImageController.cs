@@ -10,7 +10,18 @@ namespace Zin_Service.WebUI.Controllers
         [HttpPost]
         public ActionResult UploadImage(HttpPostedFileBase uploadedFile)
         {
-            throw new NotImplementedException();
+            if (uploadedFile != null)
+            {
+                if ()
+                {
+                    
+                }
+            }
+            else
+            {
+                throw new NullReferenceException();
+            }
+            //throw new NotImplementedException();
         }
 
         public void GenerateFilterImage()
