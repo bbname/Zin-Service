@@ -30,22 +30,6 @@ namespace Zin_Service.WebUI.Controllers
             {
                 return View("Error", e);
             }
-            //if (uploadedFile != null)
-            //{
-            //    if (_readImageFileInfo.CheckIsFileImageExtensionFromFileName(uploadedFile.FileName)
-            //        && _readImageFileInfo.CheckIsFileImageExtensionFromFileContentType(uploadedFile.ContentType))
-            //    {
-            //        throw new NotImplementedException();
-            //    }
-            //    else
-            //    {
-            //        throw new InvalidDataException();
-            //    }
-            //}
-            //else
-            //{
-            //    throw new NullReferenceException();
-            //}
         }
 
         public void GenerateFilterImage()
