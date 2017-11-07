@@ -15,8 +15,8 @@ namespace Zin_Service.Tests.BusinessLogic
         public void StoreImageFile_FileIsNull_ExceptionThrown()
         {
             // Arrange
-            var readImageFileInfo = new Mock<IReadImageFileInfo>();
-            var writeImageFileInfo = new WriteImageFileInfo(readImageFileInfo.Object);
+            IReadImageFileInfo readImageFileInfo = new ReadImageFileInfo();
+            var writeImageFileInfo = new WriteImageFileInfo(readImageFileInfo);
             var fileUploaded = new Mock<HttpPostedFileBase>();
             fileUploaded = null;
 
@@ -28,9 +28,10 @@ namespace Zin_Service.Tests.BusinessLogic
         public void StoreImageFile_FileIsTxt_ExceptionThrown()
         {
             // Arrange
-            var readImageFileInfo = new Mock<IReadImageFileInfo>().Object;
+            IReadImageFileInfo readImageFileInfo = new ReadImageFileInfo();
             var writeImageFileInfo = new WriteImageFileInfo(readImageFileInfo);
-            var path = @"E:\PROJEKTY\Zin-Service Images\Uploaded\jakistam.txt.txt";
+            //var path = @"E:\PROJEKTY\Zin-Service Images\Uploaded\jakistam.txt.txt";
+            var path = @"D:\Projekty\WŁASNE\Zin-Service Images\Uploaded\jakistam.txt.txt";
             var fileStream = new FileStream(path, FileMode.Open);
             var uploadedFile = new Mock<HttpPostedFileBase>();
             uploadedFile.Setup(f => f.FileName).Returns("jakistam.txt");
@@ -48,9 +49,10 @@ namespace Zin_Service.Tests.BusinessLogic
         public void StoreImageFile_FileIsPng_NotImplementedException()
         {
             // Arrange
-            var readImageFileInfo = new Mock<IReadImageFileInfo>();
-            var writeImageFileInfo = new WriteImageFileInfo(readImageFileInfo.Object);
-            var path = @"E:\PROJEKTY\Zin-Service Images\Uploaded\owczarek.png";
+            IReadImageFileInfo readImageFileInfo = new ReadImageFileInfo();
+            var writeImageFileInfo = new WriteImageFileInfo(readImageFileInfo);
+            //var path = @"E:\PROJEKTY\Zin-Service Images\Uploaded\owczarek.png";
+            var path = @"D:\Projekty\WŁASNE\Zin-Service Images\Uploaded\owczarek.png";
             var fileStream = new FileStream(path, FileMode.Open);
             var stream = new Mock<HttpPostedFileWrapper>();
             var uploadedFile = new Mock<HttpPostedFileBase>();
