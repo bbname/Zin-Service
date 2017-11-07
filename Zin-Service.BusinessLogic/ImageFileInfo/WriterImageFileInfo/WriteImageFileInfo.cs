@@ -26,8 +26,7 @@ namespace Zin_Service.BusinessLogic.ImageFileInfo.WriterImageFileInfo
         {
             if (file != null)
             {
-                if (_readImageFileInfo.CheckIsFileImageExtensionFromFileName(file.FileName)
-                    && _readImageFileInfo.CheckIsFileImageExtensionFromFileContentType(file.ContentType))
+                if (_readImageFileInfo.CheckIsFileImageExtension(file.ContentType))
                 {
                     throw new NotImplementedException();
                 }

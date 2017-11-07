@@ -7,8 +7,7 @@ namespace Zin_Service.BusinessLogic.ImageFileInfo.ReaderImageFileInfo
     {
         bool CheckIsFileExist(string fileName);
         bool CheckIsFileEmpty(string fileName);
-        bool CheckIsFileImageExtensionFromFileName(string fileName);
-        bool CheckIsFileImageExtensionFromFileContentType(string fileContentType);
+        bool CheckIsFileImageExtension(string fileContentType);
         string GetImageExtension(string fileName);
         string GetFileName(string fileName);
 

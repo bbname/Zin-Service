@@ -78,6 +78,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLogic\ReadImageFileInfoTest.cs" />
     <Compile Include="BusinessLogic\WriteImageFileInfoTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebUI\Controllers\ImageControllerTest.cs" />

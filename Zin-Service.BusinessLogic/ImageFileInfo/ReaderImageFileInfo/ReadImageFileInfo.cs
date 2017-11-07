@@ -24,14 +24,24 @@ namespace Zin_Service.BusinessLogic.ImageFileInfo.ReaderImageFileInfo
             throw new NotImplementedException();
         }
 
-        public bool CheckIsFileImageExtensionFromFileName(string fileName)
+        public bool CheckIsFileImageExtension(string fileContentType)
         {
-            throw new NotImplementedException();
-        }
-
-        public bool CheckIsFileImageExtensionFromFileContentType(string fileContentType)
-        {
-            throw new NotImplementedException();
+            if (!String.IsNullOrEmpty(fileContentType))
+            {
+                switch (fileContentType)
+                {
+                    case "image/png":
+                        return true;
+                    case "image/jpeg":
+                        return true;
+                    default:
+                        return false;
+                }
+            }
+            else
+            {
+                throw new NullReferenceException();
+            }
         }
     }
 }

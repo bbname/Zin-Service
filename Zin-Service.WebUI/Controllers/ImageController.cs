@@ -12,10 +12,10 @@ namespace Zin_Service.WebUI.Controllers
     {
         private readonly IReadImageFileInfo _readImageFileInfo;
         private readonly IWriteImageFileInfo _writeImageFileInfo;
-        public ImageController(IReadImageFileInfo readImageFileInfo, IWriteImageFileInfo wruImageFileInfo)
+        public ImageController(IReadImageFileInfo readImageFileInfo, IWriteImageFileInfo writeImageFileInfo)
         {
             _readImageFileInfo = readImageFileInfo;
-            _writeImageFileInfo = wruImageFileInfo;
+            _writeImageFileInfo = writeImageFileInfo;
         }
 
         [HttpPost]
