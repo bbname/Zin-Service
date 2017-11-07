@@ -5,9 +5,9 @@ using Zin_Service.Infrastructure.AutofacConfiguration;
 
 namespace Zin_Service.WebUI.Infrastructure
 {
-    public class AutofacConfigurationStart
+    public static class AutofacConfigurationStart
     {
-        public void ConfigureContainer()
+        public static void ConfigureContainer()
         {
             var builder = new ContainerBuilder();
             builder.RegisterControllers(typeof(MvcApplication).Assembly);

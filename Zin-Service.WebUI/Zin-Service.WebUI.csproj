@@ -242,6 +242,10 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Zin-Service.BusinessLogic\Zin-Service.BusinessLogic.csproj">
+      <Project>{ED692F98-ADA8-40F1-911C-C35766208551}</Project>
+      <Name>Zin-Service.BusinessLogic</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Zin-Service.Infrastructure\Zin-Service.Infrastructure.csproj">
       <Project>{33DD3733-0F24-40B4-8C88-79D458AFD0FC}</Project>
       <Name>Zin-Service.Infrastructure</Name>
