@@ -15,7 +15,7 @@ namespace Zin_Service.Tests.BusinessLogic
             string fileContentType = null;
 
             // Act and Assert exception
-            Assert.Throws<NullReferenceException>(() => readImageFileInfo.CheckIsFileImageExtension(fileContentType));
+            Assert.Throws<ArgumentNullException>(() => readImageFileInfo.CheckIsFileImageExtension(fileContentType));
         }
 
         [Test]
@@ -26,7 +26,7 @@ namespace Zin_Service.Tests.BusinessLogic
             string fileContentType = "";
 
             // Act and Assert exception
-            Assert.Throws<NullReferenceException>(() => readImageFileInfo.CheckIsFileImageExtension(fileContentType));
+            Assert.Throws<ArgumentNullException>(() => readImageFileInfo.CheckIsFileImageExtension(fileContentType));
         }
 
         [Test]
@@ -72,6 +72,61 @@ namespace Zin_Service.Tests.BusinessLogic
 
             // Assert 
             Assert.AreEqual(expectedResult, actualResult);
+        }
+
+        [Test]
+        public void CheckIsFileExist_StringIsNull_ExceptionThrown()
+        {
+            // Arrange
+            var readImageFileInfo = new ReadImageFileInfo();
+            string fileName = null;
+
+            // Act and Assert exception
+            Assert.Throws<ArgumentNullException>(() => readImageFileInfo.CheckIsFileExist(fileName));
+        }
+
+        [Test]
+        public void CheckIsFileExist_StringIsEmpty_ExceptionThrown()
+        {
+            // Arrange
+            var readImageFileInfo = new ReadImageFileInfo();
+            string fileName = "";
+
+            // Act and Assert exception
+            Assert.Throws<ArgumentNullException>(() => readImageFileInfo.CheckIsFileExist(fileName));
+        }
+
+        [Test]
+        public void GetImageExtension_StringIsNull_ExceptionThrown()
+        {
+            // Arrange
+            var readImageFileInfo = new ReadImageFileInfo();
+            string fileName = null;
+
+            // Act and Assert exception
+            Assert.Throws<ArgumentNullException>(() => readImageFileInfo.GetImageExtension(fileName));
+        }
+
+        [Test]
+        public void GetImageExtension_StringIsEmpty_ExceptionThrown()
+        {
+            // Arrange
+            var readImageFileInfo = new ReadImageFileInfo();
+            string fileName = "";
+
+            // Act and Assert exception
+            Assert.Throws<ArgumentNullException>(() => readImageFileInfo.GetImageExtension(fileName));
+        }
+
+        [Test]
+        public void GetImageExtension_StringIsFileName_NotImplementedEx()
+        {
+            // Arrange
+            var readImageFileInfo = new ReadImageFileInfo();
+            string fileName = "FileName";
+
+            // Act and Assert exception
+            Assert.Throws<NotImplementedException>(() => readImageFileInfo.GetImageExtension(fileName));
         }
     }
 }

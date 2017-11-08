@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace Zin_Service.BusinessLogic.ImageFileInfo.ReaderImageFileInfo
 {
@@ -6,20 +7,36 @@ namespace Zin_Service.BusinessLogic.ImageFileInfo.ReaderImageFileInfo
     {
         public bool CheckIsFileExist(string fileName)
         {
-            throw new NotImplementedException();
-        }
-
-        public bool CheckIsFileEmpty(string fileName)
-        {
-            throw new NotImplementedException();
+            if (!String.IsNullOrEmpty(fileName))
+            {
+                throw new NotImplementedException();
+            }
+            else
+            {
+                throw new ArgumentNullException();
+            }
         }
 
         public string GetImageExtension(string fileName)
         {
-            throw new NotImplementedException();
+            if (!String.IsNullOrEmpty(fileName))
+            {
+                if (CheckIsFileExist(fileName))
+                {
+                    throw new NotImplementedException();
+                }
+                else
+                {
+                    throw new FileNotFoundException();
+                }
+            }
+            else
+            {
+                throw new ArgumentNullException();
+            }
         }
 
-        public string GetFileName(string fileName)
+        public string GetFileName(string fullFileName)
         {
             throw new NotImplementedException();
         }
@@ -40,7 +57,7 @@ namespace Zin_Service.BusinessLogic.ImageFileInfo.ReaderImageFileInfo
             }
             else
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
         }
     }

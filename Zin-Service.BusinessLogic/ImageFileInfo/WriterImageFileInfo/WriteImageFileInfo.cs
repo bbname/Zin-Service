@@ -37,7 +37,7 @@ namespace Zin_Service.BusinessLogic.ImageFileInfo.WriterImageFileInfo
             }
             else
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
         }
     }
