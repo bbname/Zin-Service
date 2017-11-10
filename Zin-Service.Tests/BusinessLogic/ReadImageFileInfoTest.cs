@@ -97,6 +97,17 @@ namespace Zin_Service.Tests.BusinessLogic
         }
 
         [Test]
+        public void CheckIsFileExist_StringIsFileName_ExceptionThrown()
+        {
+            // Arrange
+            var readImageFileInfo = new ReadImageFileInfo();
+            string fileName = "FileName";
+
+            // Act and Assert exception
+            Assert.Throws<NotImplementedException>(() => readImageFileInfo.CheckIsFileExist(fileName));
+        }
+
+        [Test]
         public void GetImageExtension_StringIsNull_ExceptionThrown()
         {
             // Arrange
@@ -119,7 +130,7 @@ namespace Zin_Service.Tests.BusinessLogic
         }
 
         [Test]
-        public void GetImageExtension_StringIsFileName_NotImplementedEx()
+        public void GetImageExtension_StringIsFileName_ExceptionThrown()
         {
             // Arrange
             var readImageFileInfo = new ReadImageFileInfo();

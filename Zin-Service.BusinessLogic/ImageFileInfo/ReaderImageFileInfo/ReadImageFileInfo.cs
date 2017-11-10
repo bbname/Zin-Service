@@ -1,11 +1,14 @@
 ﻿using System;
 using System.IO;
+using System.Runtime.Remoting.Channels;
+using System.Web;
+using System.Web.UI.WebControls;
 
 namespace Zin_Service.BusinessLogic.ImageFileInfo.ReaderImageFileInfo
 {
     public class ReadImageFileInfo : IReadImageFileInfo
     {
-        public bool CheckIsFileExist(string fileName)
+        public virtual bool CheckIsFileExist(string fileName)
         {
             if (!String.IsNullOrEmpty(fileName))
             {
@@ -17,7 +20,7 @@ namespace Zin_Service.BusinessLogic.ImageFileInfo.ReaderImageFileInfo
             }
         }
 
-        public string GetImageExtension(string fileName)
+        public virtual string GetImageExtension(string fileName)
         {
             if (!String.IsNullOrEmpty(fileName))
             {

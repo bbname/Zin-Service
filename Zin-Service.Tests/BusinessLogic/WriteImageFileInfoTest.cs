@@ -29,8 +29,8 @@ namespace Zin_Service.Tests.BusinessLogic
             // Arrange
             IReadImageFileInfo readImageFileInfo = new ReadImageFileInfo();
             var writeImageFileInfo = new WriteImageFileInfo(readImageFileInfo);
-            var path = @"E:\PROJEKTY\Zin-Service Images\Uploaded\jakistam.txt.txt";
-            //var path = @"D:\Projekty\WŁASNE\Zin-Service Images\Uploaded\jakistam.txt.txt";
+            //var path = @"E:\PROJEKTY\Zin-Service Images\Uploaded\jakistam.txt.txt";
+            var path = @"D:\Projekty\WŁASNE\Zin-Service Images\Uploaded\jakistam.txt.txt";
             var fileStream = new FileStream(path, FileMode.Open);
             var uploadedFile = new Mock<HttpPostedFileBase>();
             uploadedFile.Setup(f => f.FileName).Returns("jakistam.txt");
@@ -50,8 +50,8 @@ namespace Zin_Service.Tests.BusinessLogic
             // Arrange
             IReadImageFileInfo readImageFileInfo = new ReadImageFileInfo();
             var writeImageFileInfo = new WriteImageFileInfo(readImageFileInfo);
-            var path = @"E:\PROJEKTY\Zin-Service Images\Uploaded\owczarek.png";
-            //var path = @"D:\Projekty\WŁASNE\Zin-Service Images\Uploaded\owczarek.png";
+            //var path = @"E:\PROJEKTY\Zin-Service Images\Uploaded\owczarek.png";
+            var path = @"D:\Projekty\WŁASNE\Zin-Service Images\Uploaded\owczarek.png";
             var fileStream = new FileStream(path, FileMode.Open);
             var stream = new Mock<HttpPostedFileWrapper>();
             var uploadedFile = new Mock<HttpPostedFileBase>();
