@@ -93,6 +93,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLogic\ReadGeneratedImageFileInfoTest.cs" />
     <Compile Include="BusinessLogic\ReadImageFileInfoTest.cs" />
     <Compile Include="BusinessLogic\ReadUploadedImageFileInfoTest.cs" />
     <Compile Include="BusinessLogic\WriteImageFileInfoTest.cs" />

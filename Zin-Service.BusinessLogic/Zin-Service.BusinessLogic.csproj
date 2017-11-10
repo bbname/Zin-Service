@@ -56,6 +56,7 @@
     <Compile Include="Cookie\WriterCookie\IWriteCookie.cs" />
     <Compile Include="Cookie\WriterCookie\IWriteCookieImageFileInfo.cs" />
     <Compile Include="GeneratorImageName\IGenerateImageName.cs" />
+    <Compile Include="ImageFileInfo\ReaderImageFileInfo\ReadGeneratedImageFileInfo.cs" />
     <Compile Include="ImageFileInfo\ReaderImageFileInfo\ReadImageFileInfo.cs" />
     <Compile Include="ImageFileInfo\ReaderImageFileInfo\ReadUploadedImageFileInfo.cs" />
     <Compile Include="ImageFileInfo\WriterImageFileInfo\WriteImageFileInfo.cs" />

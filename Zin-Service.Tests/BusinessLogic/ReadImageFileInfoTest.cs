@@ -82,7 +82,7 @@ namespace Zin_Service.Tests.BusinessLogic
             string fileName = null;
 
             // Act and Assert exception
-            Assert.Throws<ArgumentNullException>(() => readImageFileInfo.CheckIsFileExist(fileName));
+            Assert.Throws<NotImplementedException>(() => readImageFileInfo.CheckIsFileExist(fileName));
         }
 
         [Test]
@@ -93,7 +93,7 @@ namespace Zin_Service.Tests.BusinessLogic
             string fileName = "";
 
             // Act and Assert exception
-            Assert.Throws<ArgumentNullException>(() => readImageFileInfo.CheckIsFileExist(fileName));
+            Assert.Throws<NotImplementedException>(() => readImageFileInfo.CheckIsFileExist(fileName));
         }
 
         [Test]
@@ -115,7 +115,7 @@ namespace Zin_Service.Tests.BusinessLogic
             string fileName = null;
 
             // Act and Assert exception
-            Assert.Throws<ArgumentNullException>(() => readImageFileInfo.GetImageExtension(fileName));
+            Assert.Throws<NotImplementedException>(() => readImageFileInfo.GetImageExtension(fileName));
         }
 
         [Test]
@@ -126,7 +126,7 @@ namespace Zin_Service.Tests.BusinessLogic
             string fileName = "";
 
             // Act and Assert exception
-            Assert.Throws<ArgumentNullException>(() => readImageFileInfo.GetImageExtension(fileName));
+            Assert.Throws<NotImplementedException>(() => readImageFileInfo.GetImageExtension(fileName));
         }
 
         [Test]

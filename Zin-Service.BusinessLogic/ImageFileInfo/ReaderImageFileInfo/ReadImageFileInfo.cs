@@ -10,36 +10,10 @@ namespace Zin_Service.BusinessLogic.ImageFileInfo.ReaderImageFileInfo
     {
         public virtual bool CheckIsFileExist(string fileName)
         {
-            if (!String.IsNullOrEmpty(fileName))
-            {
-                throw new NotImplementedException();
-            }
-            else
-            {
-                throw new ArgumentNullException();
-            }
+            throw new NotImplementedException();
         }
 
         public virtual string GetImageExtension(string fileName)
-        {
-            if (!String.IsNullOrEmpty(fileName))
-            {
-                if (CheckIsFileExist(fileName))
-                {
-                    throw new NotImplementedException();
-                }
-                else
-                {
-                    throw new FileNotFoundException();
-                }
-            }
-            else
-            {
-                throw new ArgumentNullException();
-            }
-        }
-
-        public string GetFileName(string fullFileName)
         {
             throw new NotImplementedException();
         }

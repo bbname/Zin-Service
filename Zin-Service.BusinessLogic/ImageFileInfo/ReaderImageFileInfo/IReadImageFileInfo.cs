@@ -9,7 +9,6 @@ namespace Zin_Service.BusinessLogic.ImageFileInfo.ReaderImageFileInfo
         bool CheckIsFileExist(string fileName);
         bool CheckIsFileImageExtension(string fileContentType);
         string GetImageExtension(string fileName);
-        string GetFileName(string fullFileName);
 
     }
 }
