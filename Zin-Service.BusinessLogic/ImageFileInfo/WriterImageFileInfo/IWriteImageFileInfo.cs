@@ -7,6 +7,6 @@ namespace Zin_Service.BusinessLogic.ImageFileInfo.WriterImageFileInfo
     {
         void WriteImageFileName(string fileName);
         void WriteImageFileExtension(string fileName, string contentType);
-        void StoreImageFile(HttpPostedFileBase file);
+        //void StoreImageFile(HttpPostedFileBase file);
     }
 }

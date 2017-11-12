@@ -59,7 +59,11 @@
     <Compile Include="ImageFileInfo\ReaderImageFileInfo\ReadGeneratedImageFileInfo.cs" />
     <Compile Include="ImageFileInfo\ReaderImageFileInfo\ReadImageFileInfo.cs" />
     <Compile Include="ImageFileInfo\ReaderImageFileInfo\ReadUploadedImageFileInfo.cs" />
+    <Compile Include="ImageFileInfo\WriterImageFileInfo\IWriteGeneratedImageFileInfo.cs" />
+    <Compile Include="ImageFileInfo\WriterImageFileInfo\IWriteUploadedImageFileInfo.cs" />
+    <Compile Include="ImageFileInfo\WriterImageFileInfo\WriteGeneratedImageFileInfo.cs" />
     <Compile Include="ImageFileInfo\WriterImageFileInfo\WriteImageFileInfo.cs" />
+    <Compile Include="ImageFileInfo\WriterImageFileInfo\WriteUploadedImageFileInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ImageFileInfo\ReaderImageFileInfo\IReadGeneratedImageFileInfo.cs" />
     <Compile Include="ImageFileInfo\ReaderImageFileInfo\IReadImageFileInfo.cs" />

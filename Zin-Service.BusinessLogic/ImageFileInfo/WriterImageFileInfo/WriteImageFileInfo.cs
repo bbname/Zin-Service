@@ -7,38 +7,38 @@ namespace Zin_Service.BusinessLogic.ImageFileInfo.WriterImageFileInfo
 {
     public class WriteImageFileInfo : IWriteImageFileInfo
     {
-        private readonly IReadImageFileInfo _readImageFileInfo;
-        public WriteImageFileInfo(IReadImageFileInfo readImageFileInfo)
-        {
-            _readImageFileInfo = readImageFileInfo;
-        }
-        public void WriteImageFileName(string fileName)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void WriteImageFileExtension(string fileName, string contentType)
+        //private readonly IReadImageFileInfo _readImageFileInfo;
+        //public WriteImageFileInfo(IReadImageFileInfo readImageFileInfo)
+        //{
+        //    _readImageFileInfo = readImageFileInfo;
+        //}
+        public virtual void WriteImageFileName(string fileName)
         {
             throw new NotImplementedException();
         }
 
-        public void StoreImageFile(HttpPostedFileBase file)
+        public virtual void WriteImageFileExtension(string fileName, string contentType)
         {
-            if (file != null)
-            {
-                if (_readImageFileInfo.CheckIsFileImageExtension(file.ContentType))
-                {
-                    throw new NotImplementedException();
-                }
-                else
-                {
-                    throw new InvalidDataException();
-                }
-            }
-            else
-            {
-                throw new ArgumentNullException();
-            }
+            throw new NotImplementedException();
         }
+
+        //public void StoreImageFile(HttpPostedFileBase file)
+        //{
+        //    if (file != null)
+        //    {
+        //        if (_readImageFileInfo.CheckIsFileImageExtension(file.ContentType))
+        //        {
+        //            throw new NotImplementedException();
+        //        }
+        //        else
+        //        {
+        //            throw new InvalidDataException();
+        //        }
+        //    }
+        //    else
+        //    {
+        //        throw new ArgumentNullException();
+        //    }
+        //}
     }
 }

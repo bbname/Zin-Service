@@ -10,12 +10,12 @@ namespace Zin_Service.WebUI.Controllers
 {
     public class ImageController : Controller
     {
-        private readonly IReadImageFileInfo _readImageFileInfo;
-        private readonly IWriteImageFileInfo _writeImageFileInfo;
-        public ImageController(IReadImageFileInfo readImageFileInfo, IWriteImageFileInfo writeImageFileInfo)
+        private readonly IReadUploadedImageFileInfo _readUploadedImageFileInfo;
+        private readonly IWriteUploadedImageFileInfo _writeUploadedImageFileInfo;
+        public ImageController(IReadUploadedImageFileInfo readUploadedImageFileInfo, IWriteUploadedImageFileInfo writeUploadedImageFileInfo)
         {
-            _readImageFileInfo = readImageFileInfo;
-            _writeImageFileInfo = writeImageFileInfo;
+            _readUploadedImageFileInfo = readUploadedImageFileInfo;
+            _writeUploadedImageFileInfo = writeUploadedImageFileInfo;
         }
 
         [HttpPost]
@@ -23,7 +23,7 @@ namespace Zin_Service.WebUI.Controllers
         {
             try
             {
-                _writeImageFileInfo.StoreImageFile(uploadedFile);
+                _writeUploadedImageFileInfo.StoreUploadedImage(uploadedFile);
                 return new HttpStatusCodeResult(HttpStatusCode.Accepted);
             }
             catch (Exception e)

@@ -17,9 +17,9 @@ namespace Zin_Service.Tests.WebUI.Controllers
         public void UploadImage_UploadedFileIsNull_ExceptionThrown()
         {
             // Arrange
-            IReadImageFileInfo readImageFileInfo = new ReadImageFileInfo();
-            IWriteImageFileInfo writeImageFileInfo = new WriteImageFileInfo(readImageFileInfo);
-            var controller = new ImageController(readImageFileInfo, writeImageFileInfo);
+            IReadUploadedImageFileInfo readUploadedImageFileInfo = new ReadUploadedImageFileInfo();
+            IWriteUploadedImageFileInfo writeUploadedImageFileInfo = new WriteUploadedImageFileInfo(readUploadedImageFileInfo);
+            var controller = new ImageController(readUploadedImageFileInfo, writeUploadedImageFileInfo);
             var uploadedFile = new Mock<HttpPostedFileBase>();
             uploadedFile = null;
 

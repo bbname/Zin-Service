@@ -9,26 +9,25 @@ using Zin_Service.BusinessLogic.ImageFileInfo.WriterImageFileInfo;
 namespace Zin_Service.Tests.BusinessLogic
 {
     [TestFixture]
-    public class WriteImageFileInfoTest
+    public class WriteUploadedImageFileInfoTest
     {
         [Test]
         public void StoreImageFile_FileIsNull_ExceptionThrown()
         {
             // Arrange
-            IReadImageFileInfo readImageFileInfo = new ReadImageFileInfo();
-            var writeImageFileInfo = new WriteImageFileInfo(readImageFileInfo);
-            var fileUploaded = new Mock<HttpPostedFileBase>();
+            IReadUploadedImageFileInfo readUploadedImageFileInfo = new ReadUploadedImageFileInfo();
+            var writeUploadedImageFileInfo = new WriteUploadedImageFileInfo(readUploadedImageFileInfo);
 
             // Act and Assert exception
-            Assert.Throws<ArgumentNullException>(() => writeImageFileInfo.StoreImageFile(null));
+            Assert.Throws<ArgumentNullException>(() => writeUploadedImageFileInfo.StoreUploadedImage(null));
         }
 
         [Test]
         public void StoreImageFile_FileIsTxt_ExceptionThrown()
         {
             // Arrange
-            IReadImageFileInfo readImageFileInfo = new ReadImageFileInfo();
-            var writeImageFileInfo = new WriteImageFileInfo(readImageFileInfo);
+            IReadUploadedImageFileInfo readUploadedImageFileInfo = new ReadUploadedImageFileInfo();
+            var writeUploadedImageFileInfo = new WriteUploadedImageFileInfo(readUploadedImageFileInfo);
             //var path = @"E:\PROJEKTY\Zin-Service Images\Uploaded\jakistam.txt.txt";
             var path = @"D:\Projekty\WŁASNE\Zin-Service Images\Uploaded\jakistam.txt.txt";
             var fileStream = new FileStream(path, FileMode.Open);
@@ -39,7 +38,7 @@ namespace Zin_Service.Tests.BusinessLogic
             uploadedFile.Setup(f => f.ContentLength).Returns(1000);
 
             // Act and Assert exception
-            Assert.Throws<InvalidDataException>(() => writeImageFileInfo.StoreImageFile(uploadedFile.Object));
+            Assert.Throws<InvalidDataException>(() => writeUploadedImageFileInfo.StoreUploadedImage(uploadedFile.Object));
             fileStream.Close();
             fileStream.Dispose();
         }
@@ -48,8 +47,8 @@ namespace Zin_Service.Tests.BusinessLogic
         public void StoreImageFile_FileIsPng_NotImplementedException()
         {
             // Arrange
-            IReadImageFileInfo readImageFileInfo = new ReadImageFileInfo();
-            var writeImageFileInfo = new WriteImageFileInfo(readImageFileInfo);
+            IReadUploadedImageFileInfo readUploadedImageFileInfo = new ReadUploadedImageFileInfo();
+            var writeUploadedImageFileInfo = new WriteUploadedImageFileInfo(readUploadedImageFileInfo);
             //var path = @"E:\PROJEKTY\Zin-Service Images\Uploaded\owczarek.png";
             var path = @"D:\Projekty\WŁASNE\Zin-Service Images\Uploaded\owczarek.png";
             var fileStream = new FileStream(path, FileMode.Open);
@@ -61,7 +60,7 @@ namespace Zin_Service.Tests.BusinessLogic
             uploadedFile.Setup(f => f.ContentLength).Returns(1000);
 
             // Act and Assert exception
-            Assert.Throws<NotImplementedException>(() => writeImageFileInfo.StoreImageFile(uploadedFile.Object));
+            Assert.Throws<NotImplementedException>(() => writeUploadedImageFileInfo.StoreUploadedImage(uploadedFile.Object));
             fileStream.Close();
             fileStream.Dispose();
         }
