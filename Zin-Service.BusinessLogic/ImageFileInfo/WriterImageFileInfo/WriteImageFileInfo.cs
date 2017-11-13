@@ -7,12 +7,7 @@ namespace Zin_Service.BusinessLogic.ImageFileInfo.WriterImageFileInfo
 {
     public class WriteImageFileInfo : IWriteImageFileInfo
     {
-        //private readonly IReadImageFileInfo _readImageFileInfo;
-        //public WriteImageFileInfo(IReadImageFileInfo readImageFileInfo)
-        //{
-        //    _readImageFileInfo = readImageFileInfo;
-        //}
-        public virtual void WriteImageFileName(string fileName)
+        public virtual void ChangeFileName(string fileName)
         {
             throw new NotImplementedException();
         }
@@ -21,24 +16,5 @@ namespace Zin_Service.BusinessLogic.ImageFileInfo.WriterImageFileInfo
         {
             throw new NotImplementedException();
         }
-
-        //public void StoreImageFile(HttpPostedFileBase file)
-        //{
-        //    if (file != null)
-        //    {
-        //        if (_readImageFileInfo.CheckIsFileImageExtension(file.ContentType))
-        //        {
-        //            throw new NotImplementedException();
-        //        }
-        //        else
-        //        {
-        //            throw new InvalidDataException();
-        //        }
-        //    }
-        //    else
-        //    {
-        //        throw new ArgumentNullException();
-        //    }
-        //}
     }
 }

@@ -2,7 +2,6 @@
 {
     public interface IGenerateImageName
     {
-        string GenerateGuid();
-        string GetImageName();
+        string GenerateName();
     }
 }
