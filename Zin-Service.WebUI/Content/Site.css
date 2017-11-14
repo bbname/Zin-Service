@@ -1,4 +1,8 @@
 ﻿
+#uploaded-image > img {
+    margin: 0 auto;
+}
+
 #btn-generate {
     margin-top: 10px;
 }

@@ -24,12 +24,22 @@ namespace Zin_Service.WebUI.Controllers
             try
             {
                 _writeUploadedImageFileInfo.StoreUploadedImage(uploadedFile);
-                return new HttpStatusCodeResult(HttpStatusCode.Accepted);
             }
             catch (Exception e)
             {
                 return View("Error", e);
             }
+
+            return Json(@"Content/histogram.jpg",
+                JsonRequestBehavior.AllowGet);
+            //return Json(Server.MapPath("/Content/histogram.jpg"),
+            //    JsonRequestBehavior.AllowGet);
+            //return Json(@"D:\Projekty\WŁASNE\Zin-Service Images\Uploaded\histogram.jpg",
+            //    JsonRequestBehavior.AllowGet);
+            //return new JsonResult()
+            //{
+            //    Data = new { response = @"D:\Projekty\WŁASNE\Zin-Service Images\Uploaded\histogram.jpg" }
+            //};
         }
 
         public void GenerateFilterImage()

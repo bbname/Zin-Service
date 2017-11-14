@@ -47,9 +47,18 @@ namespace Zin_Service.BusinessLogic.ImageFileInfo.WriterImageFileInfo
             {
                 if (_readUploadedImageFileInfo.CheckIsFileImageExtension(file.ContentType))
                 {
-                    //var Spath = HttpContext.Current.Server.MapPath("~/Images/Uploaded");
+                    //var spath = HttpContext.Current.Server.MapPath("~/Images/Uploaded");
                     var path = @"D:\Projekty\WŁASNE\Zin-Service Images\Uploaded\";
-                    file.SaveAs(path);
+                    var cpath = Path.Combine(path, Path.GetFileName(file.FileName));
+                    try
+                    {
+                        file.SaveAs(cpath);
+                        ChangeFileName(file.FileName);
+                    }
+                    catch (Exception e)
+                    {
+                        throw e;
+                    }
                 }
                 else
                 {

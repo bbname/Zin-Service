@@ -1,5 +1,11 @@
 ﻿@Scripts.Render("~/bundles/jquery", "~/bundles/upload")
 
+<script type="text/javascript">
+    $(document).ready(function () {
+        UploadImageListener('@Url.Action("UploadImage", "Image")');
+    });
+</script>
+
 @using (Html.BeginForm("UploadImage", "Image", FormMethod.Post, new { id="form-upload", enctype = "multipart/form-data"}))
 {
     <label id="btn-upload" class="btn btn-success">
