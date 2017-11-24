@@ -39,6 +39,7 @@
     <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Numerics" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,10 +52,11 @@
     <Compile Include="AutofacConfiguration\ServiceModule.cs" />
     <Compile Include="Generate\GenerateImage.cs" />
     <Compile Include="Generate\IGenerateImage.cs" />
-    <Compile Include="ImageFile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Upload\IUploadImage.cs" />
-    <Compile Include="Upload\UploadImage.cs" />
+    <Compile Include="Upload\IReadUploadedImage.cs" />
+    <Compile Include="Upload\IWriteUploadedImage.cs" />
+    <Compile Include="Upload\ReadUploadedImage.cs" />
+    <Compile Include="Upload\WriteUploadedImage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\Generated\" />
@@ -62,6 +64,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Zin-Service.BusinessLogic\Zin-Service.BusinessLogic.csproj">
+      <Project>{ed692f98-ada8-40f1-911c-c35766208551}</Project>
+      <Name>Zin-Service.BusinessLogic</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

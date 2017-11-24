@@ -2,15 +2,15 @@
 using System.IO;
 using System.Web;
 
-namespace Zin_Service.BusinessLogic.ImageFileInfo.ReaderImageFileInfo
+namespace Zin_Service.Service.Upload
 {
-    public class ReadUploadedImageFileInfo : ReadImageFileInfo, IReadUploadedImageFileInfo
+    public class ReadUploadedImage : IReadUploadedImage
     {
-        public override bool CheckIsFileExist(string fileName)
+        public bool CheckIsFileExist(string fileName)
         {
             if (!String.IsNullOrEmpty(fileName))
             {
-                
+
                 var path = @"E:\PROJEKTY\Zin-Service Images\Uploaded\";
                 //var path = @"D:\Projekty\WŁASNE\Zin-Service Images\Uploaded\";
 
@@ -26,7 +26,7 @@ namespace Zin_Service.BusinessLogic.ImageFileInfo.ReaderImageFileInfo
             }
         }
 
-        public override string GetImageExtension(string fileName)
+        public string GetImageExtension(string fileName)
         {
             if (!String.IsNullOrEmpty(fileName))
             {
@@ -54,6 +54,11 @@ namespace Zin_Service.BusinessLogic.ImageFileInfo.ReaderImageFileInfo
             {
                 throw new ArgumentNullException();
             }
+        }
+
+        public byte[] GetImage(string fileName)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

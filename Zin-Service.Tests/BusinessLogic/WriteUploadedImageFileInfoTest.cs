@@ -78,8 +78,8 @@ namespace Zin_Service.Tests.BusinessLogic
             IReadUploadedImageFileInfo readUploadedImageFileInfo = new ReadUploadedImageFileInfo();
             IGenerateImageName generateImageName = new GenerateImageName();
             var writeUploadedImageFileInfo = new WriteUploadedImageFileInfo(readUploadedImageFileInfo, generateImageName);
-            //var path = @"E:\PROJEKTY\Zin-Service Images\Uploaded\jakistam.txt.txt";
-            var path = @"D:\Projekty\WŁASNE\Zin-Service Images\Uploaded\jakistam.txt.txt";
+            var path = @"E:\PROJEKTY\Zin-Service Images\Uploaded\jakistam.txt.txt";
+            //var path = @"D:\Projekty\WŁASNE\Zin-Service Images\Uploaded\jakistam.txt.txt";
             var fileStream = new FileStream(path, FileMode.Open);
             var uploadedFile = new Mock<HttpPostedFileBase>();
             uploadedFile.Setup(f => f.FileName).Returns("jakistam.txt");

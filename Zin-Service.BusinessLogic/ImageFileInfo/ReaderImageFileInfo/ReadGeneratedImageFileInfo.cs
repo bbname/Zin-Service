@@ -11,8 +11,8 @@ namespace Zin_Service.BusinessLogic.ImageFileInfo.ReaderImageFileInfo
             if (!String.IsNullOrEmpty(fileName))
             {
 
-                //var path = @"E:\PROJEKTY\Zin-Service Images\Generated\";
-                var path = @"D:\Projekty\WŁASNE\Zin-Service Images\Generated\";
+                var path = @"E:\PROJEKTY\Zin-Service Images\Generated\";
+                //var path = @"D:\Projekty\WŁASNE\Zin-Service Images\Generated\";
 
                 //var appPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"~\Images\Generated\");
                 //var serverPath = HttpContext.Current.Server.MapPath(@"~/Images/Generated");

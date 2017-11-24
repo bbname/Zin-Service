@@ -99,6 +99,7 @@
     <Compile Include="BusinessLogic\ReadUploadedImageFileInfoTest.cs" />
     <Compile Include="BusinessLogic\WriteUploadedImageFileInfoTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\UploadImageTest.cs" />
     <Compile Include="WebUI\Controllers\ImageControllerTest.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -123,9 +124,7 @@
       <Name>Zin-Service.WebUI</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Service\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>

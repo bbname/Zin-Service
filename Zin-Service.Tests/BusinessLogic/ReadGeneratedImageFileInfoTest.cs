@@ -60,7 +60,7 @@ namespace Zin_Service.Tests.BusinessLogic
         }
 
         [Test]
-        public void GetImageExtension_StringIsowczarekpng_ImagePng()
+        public void GetImageExtension_StringIsGeneratedowczarekpng_ImagePng()
         {
             // Arrange
             var readGeneratedImageFileInfo = new ReadGeneratedImageFileInfo();
@@ -75,7 +75,7 @@ namespace Zin_Service.Tests.BusinessLogic
         }
 
         [Test]
-        public void GetImageExtension_StringIshistogramjpg_ImageJpeg()
+        public void GetImageExtension_StringIsGeneratedhistogramjpg_ImageJpeg()
         {
             // Arrange
             var readGeneratedImageFileInfo = new ReadGeneratedImageFileInfo();
