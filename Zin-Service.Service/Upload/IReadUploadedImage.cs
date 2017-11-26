@@ -1,9 +1,9 @@
-﻿namespace Zin_Service.Service.Upload
+﻿using Zin_Service.Service.ReaderImage;
+
+namespace Zin_Service.Service.Upload
 {
-    public interface IReadUploadedImage
+    public interface IReadUploadedImage : IReadImage
     {
-        bool CheckIsFileExist(string fileName);
-        string GetImageExtension(string fileName);
-        byte[] GetImage(string fileName);
+        
     }
 }

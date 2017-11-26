@@ -3,27 +3,25 @@ using System.IO;
 using System.Web;
 using Moq;
 using NUnit.Framework;
-using Zin_Service.BusinessLogic.GeneratorImageName;
-using Zin_Service.BusinessLogic.ImageFileInfo.ReaderImageFileInfo;
-using Zin_Service.BusinessLogic.ImageFileInfo.WriterImageFileInfo;
+using Zin_Service.Service.Upload;
+using Zin_Service.Service.GeneratorImageName;
 
-namespace Zin_Service.Tests.BusinessLogic
+namespace Zin_Service.Tests.Service
 {
     [TestFixture]
-    public class WriteUploadedImageFileInfoTest
+    public class WriteUploadedImageTest
     {
-
         [Test]
         public void ChangeFileName_StringIsNull_ExceptionThrown()
         {
             // Arrange
-            IReadUploadedImageFileInfo readUploadedImageFileInfo = new ReadUploadedImageFileInfo();
+            IReadUploadedImage readUploadedImage = new ReadUploadedImage();
             IGenerateImageName generateImageName = new GenerateImageName();
-            var writeUploadedImageFileInfo = new WriteUploadedImageFileInfo(readUploadedImageFileInfo, generateImageName);
+            var writeUploadedImage = new WriteUploadedImage(readUploadedImage, generateImageName);
             string uploadedFileName = null;
 
             // Act and Assert exception
-            Assert.Throws<ArgumentNullException>(() => writeUploadedImageFileInfo.ChangeFileName(uploadedFileName));
+            Assert.Throws<ArgumentNullException>(() => writeUploadedImage.ChangeFileName(uploadedFileName));
 
         }
 
@@ -31,13 +29,13 @@ namespace Zin_Service.Tests.BusinessLogic
         public void ChangeFileName_StringIsEmpty_ExceptionThrown()
         {
             // Arrange
-            IReadUploadedImageFileInfo readUploadedImageFileInfo = new ReadUploadedImageFileInfo();
+            IReadUploadedImage readUploadedImage = new ReadUploadedImage();
             IGenerateImageName generateImageName = new GenerateImageName();
-            var writeUploadedImageFileInfo = new WriteUploadedImageFileInfo(readUploadedImageFileInfo, generateImageName);
+            var writeUploadedImage = new WriteUploadedImage(readUploadedImage, generateImageName);
             string uploadedFileName = "";
 
             // Act and Assert exception
-            Assert.Throws<ArgumentNullException>(() => writeUploadedImageFileInfo.ChangeFileName(uploadedFileName));
+            Assert.Throws<ArgumentNullException>(() => writeUploadedImage.ChangeFileName(uploadedFileName));
 
         }
 
@@ -45,16 +43,16 @@ namespace Zin_Service.Tests.BusinessLogic
         public void ChangeFileName_StringIsowczarekpng_ChangedFileName()
         {
             // Arrange
-            IReadUploadedImageFileInfo readUploadedImageFileInfo = new ReadUploadedImageFileInfo();
+            IReadUploadedImage readUploadedImage = new ReadUploadedImage();
             IGenerateImageName generateImageName = new GenerateImageName();
-            var writeUploadedImageFileInfo = new WriteUploadedImageFileInfo(readUploadedImageFileInfo, generateImageName);
+            var writeUploadedImage = new WriteUploadedImage(readUploadedImage, generateImageName);
             string uploadedFileName = "owczarek.png";
 
             // Act 
-            writeUploadedImageFileInfo.ChangeFileName(uploadedFileName);
+            writeUploadedImage.ChangeFileName(uploadedFileName);
 
             // Assert
-            Assert.IsFalse(readUploadedImageFileInfo.CheckIsFileExist(uploadedFileName));
+            Assert.IsFalse(readUploadedImage.CheckIsFileExist(uploadedFileName));
 
 
         }
@@ -63,21 +61,21 @@ namespace Zin_Service.Tests.BusinessLogic
         public void StoreUploadedImage_FileIsNull_ExceptionThrown()
         {
             // Arrange
-            IReadUploadedImageFileInfo readUploadedImageFileInfo = new ReadUploadedImageFileInfo();
+            IReadUploadedImage readUploadedImage = new ReadUploadedImage();
             IGenerateImageName generateImageName = new GenerateImageName();
-            var writeUploadedImageFileInfo = new WriteUploadedImageFileInfo(readUploadedImageFileInfo, generateImageName);
+            var writeUploadedImage = new WriteUploadedImage(readUploadedImage, generateImageName);
 
             // Act and Assert exception
-            Assert.Throws<ArgumentNullException>(() => writeUploadedImageFileInfo.StoreUploadedImage(null));
+            Assert.Throws<ArgumentNullException>(() => writeUploadedImage.StoreUploadedImage(null));
         }
 
         [Test]
         public void StoreUploadedImage_FileIsTxt_ExceptionThrown()
         {
             // Arrange
-            IReadUploadedImageFileInfo readUploadedImageFileInfo = new ReadUploadedImageFileInfo();
+            IReadUploadedImage readUploadedImage = new ReadUploadedImage();
             IGenerateImageName generateImageName = new GenerateImageName();
-            var writeUploadedImageFileInfo = new WriteUploadedImageFileInfo(readUploadedImageFileInfo, generateImageName);
+            var writeUploadedImage = new WriteUploadedImage(readUploadedImage, generateImageName);
             //var path = @"E:\PROJEKTY\Zin-Service Images\Uploaded\jakistam.txt.txt";
             var path = @"D:\Projekty\WŁASNE\Zin-Service Images\Uploaded\jakistam.txt.txt";
             var fileStream = new FileStream(path, FileMode.Open);
@@ -88,7 +86,7 @@ namespace Zin_Service.Tests.BusinessLogic
             uploadedFile.Setup(f => f.ContentLength).Returns(1000);
 
             // Act and Assert exception
-            Assert.Throws<InvalidDataException>(() => writeUploadedImageFileInfo.StoreUploadedImage(uploadedFile.Object));
+            Assert.Throws<InvalidDataException>(() => writeUploadedImage.StoreUploadedImage(uploadedFile.Object));
             fileStream.Close();
             fileStream.Dispose();
         }
@@ -97,9 +95,9 @@ namespace Zin_Service.Tests.BusinessLogic
         public void StoreUploadedImage_FileIsPng_NotImplementedException()
         {
             // Arrange
-            IReadUploadedImageFileInfo readUploadedImageFileInfo = new ReadUploadedImageFileInfo();
+            IReadUploadedImage readUploadedImage = new ReadUploadedImage();
             IGenerateImageName generateImageName = new GenerateImageName();
-            var writeUploadedImageFileInfo = new WriteUploadedImageFileInfo(readUploadedImageFileInfo, generateImageName);
+            var writeUploadedImage = new WriteUploadedImage(readUploadedImage, generateImageName);
             //var path = @"E:\PROJEKTY\Zin-Service Images\Uploaded\owczarek.png";
             //var path = @"D:\Projekty\WŁASNE\Zin-Service Images\Uploaded\owczarek.png";
             //var fileStream = new FileStream(path, FileMode.Open);
@@ -111,7 +109,7 @@ namespace Zin_Service.Tests.BusinessLogic
             uploadedFile.Setup(f => f.ContentLength).Returns(1000);
 
             // Act and Assert exception
-            Assert.IsFalse(readUploadedImageFileInfo.CheckIsFileExist(uploadedFile.Name));
+            Assert.IsFalse(readUploadedImage.CheckIsFileExist(uploadedFile.Name));
             //fileStream.Close();
             //fileStream.Dispose();
         }

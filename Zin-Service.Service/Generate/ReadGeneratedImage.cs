@@ -1,21 +1,22 @@
 ﻿using System;
 using System.IO;
 using System.Web;
+using Zin_Service.Service.ReaderImage;
 
-namespace Zin_Service.BusinessLogic.ImageFileInfo.ReaderImageFileInfo
+namespace Zin_Service.Service.Generate
 {
-    public class ReadUploadedImageFileInfo : ReadImageFileInfo, IReadUploadedImageFileInfo
+    public class ReadGeneratedImage : ReadImage, IReadGeneratedImage
     {
         public override bool CheckIsFileExist(string fileName)
         {
             if (!String.IsNullOrEmpty(fileName))
             {
-                
-                //var path = @"E:\PROJEKTY\Zin-Service Images\Uploaded\";
-                var path = @"D:\Projekty\WŁASNE\Zin-Service Images\Uploaded\";
 
-                //var appPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"~\Images\Uploaded\");
-                //var serverPath = HttpContext.Current.Server.MapPath(@"~/Images/Uploaded");
+                //var path = @"E:\PROJEKTY\Zin-Service Images\Generated\";
+                var path = @"D:\Projekty\WŁASNE\Zin-Service Images\Generated\";
+
+                //var appPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"~\Images\Generated\");
+                //var serverPath = HttpContext.Current.Server.MapPath(@"~/Images/Generated");
 
                 return File.Exists(path + fileName) ? true : false;
 
@@ -32,8 +33,8 @@ namespace Zin_Service.BusinessLogic.ImageFileInfo.ReaderImageFileInfo
             {
                 if (CheckIsFileExist(fileName))
                 {
-                    //var path = @"D:\Projekty\WŁASNE\Zin-Service Images\Uploaded\";
-                    var path = @"E:\PROJEKTY\Zin-Service Images\Uploaded\";
+                    var path = @"D:\Projekty\WŁASNE\Zin-Service Images\Generated\";
+                    //var path = @"E:\PROJEKTY\Zin-Service Images\Generated\";
                     var extension = MimeMapping.GetMimeMapping(path + fileName);
 
                     if (!String.IsNullOrEmpty(extension))
@@ -54,6 +55,11 @@ namespace Zin_Service.BusinessLogic.ImageFileInfo.ReaderImageFileInfo
             {
                 throw new ArgumentNullException();
             }
+        }
+
+        public override byte[] GetImage(string fileName)
+        {
+            throw new NotImplementedException();
         }
     }
 }

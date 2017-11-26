@@ -50,13 +50,21 @@
   <ItemGroup>
     <Compile Include="AutofacConfiguration\IDetermineServiceAssembly.cs" />
     <Compile Include="AutofacConfiguration\ServiceModule.cs" />
-    <Compile Include="Generate\GenerateImage.cs" />
-    <Compile Include="Generate\IGenerateImage.cs" />
+    <Compile Include="Generate\IWriteGenerateImage.cs" />
+    <Compile Include="Generate\ReadGeneratedImage.cs" />
+    <Compile Include="Generate\IReadGeneratedImage.cs" />
+    <Compile Include="Generate\WriteGenerateImage.cs" />
+    <Compile Include="GeneratorImageName\GenerateImageName.cs" />
+    <Compile Include="GeneratorImageName\IGenerateImageName.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReaderImage\IReadImage.cs" />
+    <Compile Include="ReaderImage\ReadImage.cs" />
     <Compile Include="Upload\IReadUploadedImage.cs" />
     <Compile Include="Upload\IWriteUploadedImage.cs" />
     <Compile Include="Upload\ReadUploadedImage.cs" />
     <Compile Include="Upload\WriteUploadedImage.cs" />
+    <Compile Include="WriterImage\IWriteImage.cs" />
+    <Compile Include="WriterImage\WriteImage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\Generated\" />

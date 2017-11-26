@@ -1,12 +1,13 @@
 ﻿using System;
 using System.IO;
 using System.Web;
+using Zin_Service.Service.ReaderImage;
 
 namespace Zin_Service.Service.Upload
 {
-    public class ReadUploadedImage : IReadUploadedImage
+    public class ReadUploadedImage : ReadImage, IReadUploadedImage
     {
-        public bool CheckIsFileExist(string fileName)
+        public override bool CheckIsFileExist(string fileName)
         {
             if (!String.IsNullOrEmpty(fileName))
             {
@@ -26,7 +27,7 @@ namespace Zin_Service.Service.Upload
             }
         }
 
-        public string GetImageExtension(string fileName)
+        public override string GetImageExtension(string fileName)
         {
             if (!String.IsNullOrEmpty(fileName))
             {
@@ -56,7 +57,7 @@ namespace Zin_Service.Service.Upload
             }
         }
 
-        public byte[] GetImage(string fileName)
+        public override byte[] GetImage(string fileName)
         {
             throw new System.NotImplementedException();
         }

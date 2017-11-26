@@ -93,13 +93,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BusinessLogic\GenerateImageNameTest.cs" />
     <Compile Include="BusinessLogic\ReadGeneratedImageFileInfoTest.cs" />
     <Compile Include="BusinessLogic\ReadImageFileInfoTest.cs" />
     <Compile Include="BusinessLogic\ReadUploadedImageFileInfoTest.cs" />
     <Compile Include="BusinessLogic\WriteUploadedImageFileInfoTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service\UploadImageTest.cs" />
+    <Compile Include="Service\GenerateImageNameTest.cs" />
+    <Compile Include="Service\ReadGeneratedImageTest.cs" />
+    <Compile Include="Service\ReadUploadedImageTest.cs" />
+    <Compile Include="Service\WriteUploadedImageTest.cs" />
     <Compile Include="WebUI\Controllers\ImageControllerTest.cs" />
   </ItemGroup>
   <ItemGroup>
