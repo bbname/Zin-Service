@@ -3,24 +3,20 @@ using Zin_Service.Service.GeneratorImageName;
 
 namespace Zin_Service.Tests.Service
 {
+    [TestFixture]
     public class GenerateImageNameTest
     {
-        [TestFixture]
-        public class GenerateImageNameTest
+        [Test]
+        public void GenerateName_GenerateRandomString_String()
         {
-            [Test]
-            public void GenerateName_GenerateRandomString_String()
-            {
-                // Arrange
-                var generateImageName = new GenerateImageName();
+            // Arrange
+            var generateImageName = new GenerateImageName();
 
-                // Act
-                var randomGuid = generateImageName.GenerateName();
+            // Act
+            var randomGuid = generateImageName.GenerateName();
 
-                // Assert
-                Assert.IsNotEmpty(randomGuid);
-
-            }
+            // Assert
+            Assert.IsNotEmpty(randomGuid);
         }
     }
 }

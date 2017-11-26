@@ -32,8 +32,8 @@ namespace Zin_Service.BusinessLogic.ImageFileInfo.ReaderImageFileInfo
             {
                 if (CheckIsFileExist(fileName))
                 {
-                    //var path = @"D:\Projekty\WŁASNE\Zin-Service Images\Uploaded\";
-                    var path = @"E:\PROJEKTY\Zin-Service Images\Uploaded\";
+                    var path = @"D:\Projekty\WŁASNE\Zin-Service Images\Uploaded\";
+                    //var path = @"E:\PROJEKTY\Zin-Service Images\Uploaded\";
                     var extension = MimeMapping.GetMimeMapping(path + fileName);
 
                     if (!String.IsNullOrEmpty(extension))

@@ -88,5 +88,72 @@ namespace Zin_Service.Tests.Service
             // Assert
             Assert.AreEqual(expectedValue, actualValue);
         }
+
+        [Test]
+        public void CheckIsFileImageExtension_StringIsNull_ExcpetionThrown()
+        {
+            // Arrange
+            var readGeneratedImage = new ReadGeneratedImage();
+            string fileContentType = null;
+
+            // Act and Assert exception
+            Assert.Throws<ArgumentNullException>(() => readGeneratedImage.CheckIsFileImageExtension(fileContentType));
+        }
+
+        [Test]
+        public void CheckIsFileImageExtension_StringIsEmpty_ExcpetionThrown()
+        {
+            // Arrange
+            var readGeneratedImage = new ReadGeneratedImage();
+            string fileContentType = "";
+
+            // Act and Assert exception
+            Assert.Throws<ArgumentNullException>(() => readGeneratedImage.CheckIsFileImageExtension(fileContentType));
+        }
+
+        [Test]
+        public void CheckIsFileImageExtension_StringIsTextPlain_ReturnFalse()
+        {
+            // Arrange
+            var readGeneratedImage = new ReadGeneratedImage();
+            string fileContentType = "text/plain";
+            var expectedResult = false;
+
+            // Act 
+            var actualResult = readGeneratedImage.CheckIsFileImageExtension(fileContentType);
+
+            // Assert
+            Assert.AreEqual(expectedResult, actualResult);
+        }
+
+        [Test]
+        public void CheckIsFileImageExtension_StringIsImagePng_ReturnTrue()
+        {
+            // Arrange
+            var readGeneratedImage = new ReadGeneratedImage();
+            string fileContentType = "image/png";
+            var expectedResult = true;
+
+            // Act
+            var actualResult = readGeneratedImage.CheckIsFileImageExtension(fileContentType);
+
+            // Assert 
+            Assert.AreEqual(expectedResult, actualResult);
+        }
+
+        [Test]
+        public void CheckIsFileImageExtension_StringIsImageJpeg_ReturnTrue()
+        {
+            // Arrange
+            var readGeneratedImage = new ReadGeneratedImage();
+            string fileContentType = "image/jpeg";
+            var expectedResult = true;
+
+            // Act
+            var actualResult = readGeneratedImage.CheckIsFileImageExtension(fileContentType);
+
+            // Assert 
+            Assert.AreEqual(expectedResult, actualResult);
+        }
     }
 }
