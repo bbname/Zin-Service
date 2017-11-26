@@ -93,10 +93,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BusinessLogic\ReadGeneratedImageFileInfoTest.cs" />
-    <Compile Include="BusinessLogic\ReadImageFileInfoTest.cs" />
-    <Compile Include="BusinessLogic\ReadUploadedImageFileInfoTest.cs" />
-    <Compile Include="BusinessLogic\WriteUploadedImageFileInfoTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\GenerateImageNameTest.cs" />
     <Compile Include="Service\ReadGeneratedImageTest.cs" />
@@ -126,7 +122,9 @@
       <Name>Zin-Service.WebUI</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="BusinessLogic\" />
+  </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>

@@ -4,9 +4,8 @@ using System;
 using System.IO;
 using System.Web;
 using System.Web.Mvc;
-using Zin_Service.BusinessLogic.GeneratorImageName;
-using Zin_Service.BusinessLogic.ImageFileInfo.ReaderImageFileInfo;
-using Zin_Service.BusinessLogic.ImageFileInfo.WriterImageFileInfo;
+using Zin_Service.Service.GeneratorImageName;
+using Zin_Service.Service.Upload;
 using Zin_Service.WebUI.Controllers;
 
 namespace Zin_Service.Tests.WebUI.Controllers
@@ -18,10 +17,10 @@ namespace Zin_Service.Tests.WebUI.Controllers
         public void UploadImage_UploadedFileIsNull_ExceptionThrown()
         {
             // Arrange
-            IReadUploadedImageFileInfo readUploadedImageFileInfo = new ReadUploadedImageFileInfo();
+            IReadUploadedImage readUploadedImage = new ReadUploadedImage();
             IGenerateImageName generateImageName = new GenerateImageName();
-            IWriteUploadedImageFileInfo writeUploadedImageFileInfo = new WriteUploadedImageFileInfo(readUploadedImageFileInfo, generateImageName);
-            var controller = new ImageController(readUploadedImageFileInfo, writeUploadedImageFileInfo);
+            IWriteUploadedImage writeUploadedImage = new WriteUploadedImage(readUploadedImage, generateImageName);
+            var controller = new ImageController(readUploadedImage, writeUploadedImage);
             var uploadedFile = new Mock<HttpPostedFileBase>();
             uploadedFile = null;
 

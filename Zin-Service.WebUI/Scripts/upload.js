@@ -6,7 +6,6 @@
 
 function UploadImageListener(urlAction) {
     $('#btn-upload').change(function () {
-        debugger;
         var formData = new FormData($('#form-upload').get(0));
         UploadImage(urlAction, formData);
     });
@@ -20,7 +19,7 @@ function UploadImage(urlAction, uploadedFile) {
         processData: false,
         contentType: false,
         success: function(response) {
-            $('#uploaded-image').append('<img src="/' + response + '" class="img-responsive thumbnail" />');
+            $('#uploaded-image').html('<img src="/' + response + '" class="img-responsive thumbnail" />');
         },
         error: function() {
             alert('Wystąpił problem przy wysyłaniu pliku na serwer.');

@@ -251,6 +251,10 @@
       <Project>{33DD3733-0F24-40B4-8C88-79D458AFD0FC}</Project>
       <Name>Zin-Service.Infrastructure</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Zin-Service.Service\Zin-Service.Service.csproj">
+      <Project>{7B736BBD-F884-47F2-B1D9-4F0666639364}</Project>
+      <Name>Zin-Service.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

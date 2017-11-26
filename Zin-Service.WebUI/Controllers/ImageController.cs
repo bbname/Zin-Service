@@ -3,19 +3,18 @@ using System.IO;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Zin_Service.BusinessLogic.ImageFileInfo.ReaderImageFileInfo;
-using Zin_Service.BusinessLogic.ImageFileInfo.WriterImageFileInfo;
+using Zin_Service.Service.Upload;
 
 namespace Zin_Service.WebUI.Controllers
 {
     public class ImageController : Controller
     {
-        private readonly IReadUploadedImageFileInfo _readUploadedImageFileInfo;
-        private readonly IWriteUploadedImageFileInfo _writeUploadedImageFileInfo;
-        public ImageController(IReadUploadedImageFileInfo readUploadedImageFileInfo, IWriteUploadedImageFileInfo writeUploadedImageFileInfo)
+        private readonly IReadUploadedImage _readUploadedImage;
+        private readonly IWriteUploadedImage _writeUploadedImage;
+        public ImageController(IReadUploadedImage readUploadedImage, IWriteUploadedImage writeUploadedImage)
         {
-            _readUploadedImageFileInfo = readUploadedImageFileInfo;
-            _writeUploadedImageFileInfo = writeUploadedImageFileInfo;
+            _readUploadedImage = readUploadedImage;
+            _writeUploadedImage = writeUploadedImage;
         }
 
         [HttpPost]
@@ -23,7 +22,7 @@ namespace Zin_Service.WebUI.Controllers
         {
             try
             {
-                _writeUploadedImageFileInfo.StoreUploadedImage(uploadedFile);
+                _writeUploadedImage.StoreUploadedImage(uploadedFile);
             }
             catch (Exception e)
             {
