@@ -52,9 +52,9 @@
     <Compile Include="AutofacConfiguration\IDetermineBusinessLogicAssembly.cs" />
     <Compile Include="ConverterImageToBytes\IConvertImageToBytes.cs" />
     <Compile Include="Cookie\ReaderCookie\IReadCookie.cs" />
-    <Compile Include="Cookie\ReaderCookie\IReadCookieImageFileInfo.cs" />
+    <Compile Include="Cookie\ReaderCookie\ReadCookie.cs" />
     <Compile Include="Cookie\WriterCookie\IWriteCookie.cs" />
-    <Compile Include="Cookie\WriterCookie\IWriteCookieImageFileInfo.cs" />
+    <Compile Include="Cookie\WriterCookie\WriteCookie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

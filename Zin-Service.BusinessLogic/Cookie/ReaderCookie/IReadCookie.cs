@@ -1,9 +1,10 @@
-﻿namespace Zin_Service.BusinessLogic.Cookie.ReaderCookie
+﻿using System.Web;
+
+namespace Zin_Service.BusinessLogic.Cookie.ReaderCookie
 {
     public interface IReadCookie
     {
-        string GetCookieName();
-        string GetCookieValue();
-        bool CheckIfCookieExist();
+        string GetCookieValue(HttpContext httpContext, string cookieName);
+        bool CheckIfCookieExist(HttpContext httpContext, string cookieName);
     }
 }

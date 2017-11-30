@@ -1,9 +1,9 @@
-﻿namespace Zin_Service.BusinessLogic.Cookie.WriterCookie
+﻿using System.Web;
+
+namespace Zin_Service.BusinessLogic.Cookie.WriterCookie
 {
     public interface IWriteCookie
     {
-        void WriteCookieName(string cookieName);
-        void WriteCookieValue(string cookieValue);
-        void WriteCookieExpirationDate();
+        HttpCookie SetCookie(HttpContext httpContext, string cookieName, string cookieValue);
     }
 }
