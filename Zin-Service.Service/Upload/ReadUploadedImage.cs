@@ -12,8 +12,8 @@ namespace Zin_Service.Service.Upload
             if (!String.IsNullOrEmpty(fileName))
             {
 
-                //var path = @"E:\PROJEKTY\Zin-Service Images\Uploaded\";
-                var path = @"D:\Projekty\WŁASNE\Zin-Service Images\Uploaded\";
+                var path = @"E:\PROJEKTY\Zin-Service Images\Uploaded\";
+                //var path = @"D:\Projekty\WŁASNE\Zin-Service Images\Uploaded\";
                 //var appPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"~\Images\Uploaded\");
                 //var serverPath = HttpContext.Current.Server.MapPath(@"~/Images/Uploaded");
 
@@ -32,8 +32,8 @@ namespace Zin_Service.Service.Upload
             {
                 if (CheckIsFileExist(fileName))
                 {
-                    var path = @"D:\Projekty\WŁASNE\Zin-Service Images\Uploaded\";
-                    //var path = @"E:\PROJEKTY\Zin-Service Images\Uploaded\";
+                    //var path = @"D:\Projekty\WŁASNE\Zin-Service Images\Uploaded\";
+                    var path = @"E:\PROJEKTY\Zin-Service Images\Uploaded\";
                     var extension = MimeMapping.GetMimeMapping(path + fileName);
 
                     if (!String.IsNullOrEmpty(extension))

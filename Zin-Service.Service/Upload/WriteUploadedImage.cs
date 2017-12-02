@@ -23,8 +23,8 @@ namespace Zin_Service.Service.Upload
                 if (_readUploadedImage.CheckIsFileImageExtension(file.ContentType))
                 {
                     //var spath = HttpContext.Current.Server.MapPath("~/Images/Uploaded");
-                    var path = @"D:\Projekty\WŁASNE\Zin-Service Images\Uploaded\";
-                    //var path = @"E:\PROJEKTY\Zin-Service Images\Uploaded\jakistam.txt.txt";
+                    //var path = @"D:\Projekty\WŁASNE\Zin-Service Images\Uploaded\";
+                    var path = @"E:\PROJEKTY\Zin-Service Images\Uploaded\jakistam.txt.txt";
                     var cpath = Path.Combine(path, Path.GetFileName(file.FileName));
                     try
                     {
@@ -52,8 +52,8 @@ namespace Zin_Service.Service.Upload
             if (!String.IsNullOrEmpty(uploadedFileName))
             {
                 //var Spath = HttpContext.Current.Server.MapPath("~/Images/Uploaded");
-                var path = @"D:\Projekty\WŁASNE\Zin-Service Images\Uploaded\";
-                //var path = @"E:\PROJEKTY\Zin-Service Images\Uploaded\";
+                //var path = @"D:\Projekty\WŁASNE\Zin-Service Images\Uploaded\";
+                var path = @"E:\PROJEKTY\Zin-Service Images\Uploaded\";
                 var guid = _generateImageName.GenerateName();
                 var imageExtension = Path.GetExtension(path + uploadedFileName);
 

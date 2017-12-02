@@ -17,7 +17,7 @@ namespace Zin_Service.Tests.BusinessLogic
             // Arrange
             IReadCookie readCookie = new ReadCookie();
             string cookieName = null;
-            var context = new Mock<HttpContext>();
+            var context = new Mock<HttpContextBase>();
 
             // Act and Assert exception
             Assert.Throws<ArgumentNullException>(() => readCookie.CheckIfCookieExist(context.Object,cookieName));
@@ -29,10 +29,21 @@ namespace Zin_Service.Tests.BusinessLogic
             // Arrange
             IReadCookie readCookie = new ReadCookie();
             string cookieName = "";
-            var context = new Mock<HttpContext>();
+            var context = new Mock<HttpContextBase>();
 
             // Act and Assert exception
             Assert.Throws<ArgumentNullException>(() => readCookie.CheckIfCookieExist(context.Object, cookieName));
+        }
+
+        [Test]
+        public void CheckIfCookieExist_ContextIsNull_ExceptionThrown()
+        {
+            // Arrange
+            IReadCookie readCookie = new ReadCookie();
+            string cookieName = "randomCookieName";
+
+            // Act and Assert exception
+            Assert.Throws<ArgumentNullException>(() => readCookie.CheckIfCookieExist(null, cookieName));
         }
 
         [Test]
@@ -46,17 +57,20 @@ namespace Zin_Service.Tests.BusinessLogic
             string cookieName = "UploadedFile";
             string cookieValue = "682f71e9-a217-43a2-8945-959548139124";
             bool expectedValue = true;
-            var cookie = new Mock<HttpCookie>();
-            var context = new Mock<HttpContext>();
-            var request = new Mock<HttpRequest>();
-            var cookies = new Mock<HttpCookieCollection>();
-            var fakeCookies = new List<string>() { cookieName };
+            var cookie = new HttpCookie(cookieName, cookieValue);
+            var context = new Mock<HttpContextBase>();
+            var request = new Mock<HttpRequestBase>();
+            //var cookies = new Mock<HttpCookieCollection>();
+            var cookies = new HttpCookieCollection();
+            //var fakeCookies = new List<string>() { cookieName };
+            cookies.Add(cookie);
             context.Setup(ctx => ctx.Request).Returns(request.Object);
-            request.Setup(req => req.Cookies).Returns(cookies.Object);
-            cookies.Setup(c => c.GetEnumerator()).Returns(fakeCookies.GetEnumerator());
-            cookies.Setup(c => c[cookieName]).Returns(cookie.Object);
-            cookie.Setup(c => c.Name).Returns(cookieName);
-            cookie.Setup(c => c.Value).Returns(cookieValue);
+            //request.Setup(req => req.Cookies).Returns(cookies.Object);
+            request.Setup(req => req.Cookies).Returns(cookies);
+            //cookies.Setup(c => c.GetEnumerator()).Returns(fakeCookies.GetEnumerator());
+            //cookies.Setup(c => c[cookieName]).Returns(cookie.Object);
+            //cookie.Setup(c => c.Name).Returns(cookieName);
+            //cookie.Setup(c => c.Value).Returns(cookieValue);
 
             // Act
             bool actualValue = readCookie.CheckIfCookieExist(context.Object, cookieName);

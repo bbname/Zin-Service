@@ -76,8 +76,8 @@ namespace Zin_Service.Tests.Service
             IReadUploadedImage readUploadedImage = new ReadUploadedImage();
             IGenerateImageName generateImageName = new GenerateImageName();
             var writeUploadedImage = new WriteUploadedImage(readUploadedImage, generateImageName);
-            //var path = @"E:\PROJEKTY\Zin-Service Images\Uploaded\jakistam.txt.txt";
-            var path = @"D:\Projekty\WŁASNE\Zin-Service Images\Uploaded\jakistam.txt.txt";
+            var path = @"E:\PROJEKTY\Zin-Service Images\Uploaded\jakistam.txt.txt";
+            //var path = @"D:\Projekty\WŁASNE\Zin-Service Images\Uploaded\jakistam.txt.txt";
             var fileStream = new FileStream(path, FileMode.Open);
             var uploadedFile = new Mock<HttpPostedFileBase>();
             uploadedFile.Setup(f => f.FileName).Returns("jakistam.txt");

@@ -5,14 +5,14 @@ namespace Zin_Service.BusinessLogic.Cookie.ReaderCookie
 {
     public class ReadCookie : IReadCookie
     {
-        public string GetCookieValue(HttpContext context, string cookieName)
+        public string GetCookieValue(HttpContextBase context, string cookieName)
         {
             throw new NotImplementedException();
         }
 
-        public bool CheckIfCookieExist(HttpContext context, string cookieName)
+        public bool CheckIfCookieExist(HttpContextBase context, string cookieName)
         {
-            if (!String.IsNullOrEmpty(cookieName))
+            if (!String.IsNullOrEmpty(cookieName) && context != null)
             {
                 return context.Request.Cookies.Get(cookieName) != null ? true : false;
             }
