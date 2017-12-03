@@ -60,23 +60,78 @@ namespace Zin_Service.Tests.BusinessLogic
             var cookie = new HttpCookie(cookieName, cookieValue);
             var context = new Mock<HttpContextBase>();
             var request = new Mock<HttpRequestBase>();
-            //var cookies = new Mock<HttpCookieCollection>();
             var cookies = new HttpCookieCollection();
-            //var fakeCookies = new List<string>() { cookieName };
             cookies.Add(cookie);
             context.Setup(ctx => ctx.Request).Returns(request.Object);
-            //request.Setup(req => req.Cookies).Returns(cookies.Object);
             request.Setup(req => req.Cookies).Returns(cookies);
-            //cookies.Setup(c => c.GetEnumerator()).Returns(fakeCookies.GetEnumerator());
-            //cookies.Setup(c => c[cookieName]).Returns(cookie.Object);
-            //cookie.Setup(c => c.Name).Returns(cookieName);
-            //cookie.Setup(c => c.Value).Returns(cookieValue);
 
             // Act
             bool actualValue = readCookie.CheckIfCookieExist(context.Object, cookieName);
 
             // Assert
             Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        [Test]
+        public void CheckIfCookieExist_StringIsNotUploadedFile_False()
+        {
+            // hanselman
+            // http://www.hanselman.com/blog/ABackToBasicsCaseStudyImplementingHTTPFileUploadWithASPNETMVCIncludingTestsAndMocks.aspx
+
+            // Arrange
+            IReadCookie readCookie = new ReadCookie();
+            string cookieNameValid = "UploadedFile";
+            string cookieNameInvalid = "NotUploadedFile";
+            string cookieValue = "682f71e9-a217-43a2-8945-959548139124";
+            bool expectedValue = false;
+            var cookie = new HttpCookie(cookieNameValid, cookieValue);
+            var context = new Mock<HttpContextBase>();
+            var request = new Mock<HttpRequestBase>();
+            var cookies = new HttpCookieCollection();
+            cookies.Add(cookie);
+            context.Setup(ctx => ctx.Request).Returns(request.Object);
+            request.Setup(req => req.Cookies).Returns(cookies);
+
+            // Act
+            bool actualValue = readCookie.CheckIfCookieExist(context.Object, cookieNameInvalid);
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        [Test]
+        public void GetCookieValue_StringIsNull_ExceptionThrown()
+        {
+            // Arrange
+            IReadCookie readCookie = new ReadCookie();
+            string cookieName = null;
+            var context = new Mock<HttpContextBase>();
+
+            // Act and Assert exception
+            Assert.Throws<ArgumentNullException>(() => readCookie.GetCookieValue(context.Object, cookieName));
+        }
+
+        [Test]
+        public void GetCookieValue_StringIsEmpty_ExceptionThrown()
+        {
+            // Arrange
+            IReadCookie readCookie = new ReadCookie();
+            string cookieName = "";
+            var context = new Mock<HttpContextBase>();
+
+            // Act and Assert exception
+            Assert.Throws<ArgumentNullException>(() => readCookie.GetCookieValue(context.Object, cookieName));
+        }
+
+        [Test]
+        public void GetCookieValue_ContextIsNull_ExceptionThrown()
+        {
+            // Arrange
+            IReadCookie readCookie = new ReadCookie();
+            string cookieName = "randomCookieName";
+
+            // Act and Assert exception
+            Assert.Throws<ArgumentNullException>(() => readCookie.GetCookieValue(null, cookieName));
         }
     }
 }
