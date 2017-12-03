@@ -15,7 +15,7 @@ namespace Zin_Service.BusinessLogic.Cookie.ReaderCookie
                 }
                 else
                 {
-                    throw new 
+                    throw new NotImplementedException();
                 }
             }
             else

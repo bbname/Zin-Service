@@ -12,8 +12,8 @@ namespace Zin_Service.Service.Generate
             if (!String.IsNullOrEmpty(fileName))
             {
 
-                var path = @"E:\PROJEKTY\Zin-Service Images\Generated\";
-                //var path = @"D:\Projekty\WŁASNE\Zin-Service Images\Generated\";
+                //var path = @"E:\PROJEKTY\Zin-Service Images\Generated\";
+                var path = @"D:\Projekty\WŁASNE\Zin-Service Images\Generated\";
 
                 //var appPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"~\Images\Generated\");
                 //var serverPath = HttpContext.Current.Server.MapPath(@"~/Images/Generated");
@@ -33,8 +33,8 @@ namespace Zin_Service.Service.Generate
             {
                 if (CheckIsFileExist(fileName))
                 {
-                    //var path = @"D:\Projekty\WŁASNE\Zin-Service Images\Generated\";
-                    var path = @"E:\PROJEKTY\Zin-Service Images\Generated\";
+                    var path = @"D:\Projekty\WŁASNE\Zin-Service Images\Generated\";
+                    //var path = @"E:\PROJEKTY\Zin-Service Images\Generated\";
                     var extension = MimeMapping.GetMimeMapping(path + fileName);
 
                     if (!String.IsNullOrEmpty(extension))

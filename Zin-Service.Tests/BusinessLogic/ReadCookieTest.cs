@@ -60,8 +60,8 @@ namespace Zin_Service.Tests.BusinessLogic
             var cookie = new HttpCookie(cookieName, cookieValue);
             var context = new Mock<HttpContextBase>();
             var request = new Mock<HttpRequestBase>();
-            var cookies = new HttpCookieCollection();
-            cookies.Add(cookie);
+            var cookies = new HttpCookieCollection {cookie};
+            //cookies.Add(cookie);
             context.Setup(ctx => ctx.Request).Returns(request.Object);
             request.Setup(req => req.Cookies).Returns(cookies);
 
@@ -87,8 +87,8 @@ namespace Zin_Service.Tests.BusinessLogic
             var cookie = new HttpCookie(cookieNameValid, cookieValue);
             var context = new Mock<HttpContextBase>();
             var request = new Mock<HttpRequestBase>();
-            var cookies = new HttpCookieCollection();
-            cookies.Add(cookie);
+            var cookies = new HttpCookieCollection {cookie};
+            //cookies.Add(cookie);
             context.Setup(ctx => ctx.Request).Returns(request.Object);
             request.Setup(req => req.Cookies).Returns(cookies);
 

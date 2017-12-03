@@ -76,42 +76,46 @@ namespace Zin_Service.Tests.Service
             IReadUploadedImage readUploadedImage = new ReadUploadedImage();
             IGenerateImageName generateImageName = new GenerateImageName();
             var writeUploadedImage = new WriteUploadedImage(readUploadedImage, generateImageName);
-            var path = @"E:\PROJEKTY\Zin-Service Images\Uploaded\jakistam.txt.txt";
-            //var path = @"D:\Projekty\WŁASNE\Zin-Service Images\Uploaded\jakistam.txt.txt";
+            //var path = @"E:\PROJEKTY\Zin-Service Images\Uploaded\jakistam.txt.txt";
+            var path = @"D:\Projekty\WŁASNE\Zin-Service Images\Uploaded\jakistam.txt.txt";
             var fileStream = new FileStream(path, FileMode.Open);
             var uploadedFile = new Mock<HttpPostedFileBase>();
             uploadedFile.Setup(f => f.FileName).Returns("jakistam.txt");
             uploadedFile.Setup(f => f.ContentType).Returns("text/plain");
             uploadedFile.Setup(f => f.InputStream).Returns(fileStream);
             uploadedFile.Setup(f => f.ContentLength).Returns(1000);
+            fileStream.Close();
+            fileStream.Dispose();
 
             // Act and Assert exception
             Assert.Throws<InvalidDataException>(() => writeUploadedImage.StoreUploadedImage(uploadedFile.Object));
-            fileStream.Close();
-            fileStream.Dispose();
+
         }
 
         [Test]
-        public void StoreUploadedImage_FileIsPng_NotImplementedException()
+        public void StoreUploadedImage_FileIsPng_StoredFile()
         {
             // Arrange
             IReadUploadedImage readUploadedImage = new ReadUploadedImage();
             IGenerateImageName generateImageName = new GenerateImageName();
             var writeUploadedImage = new WriteUploadedImage(readUploadedImage, generateImageName);
             //var path = @"E:\PROJEKTY\Zin-Service Images\Uploaded\owczarek.png";
-            //var path = @"D:\Projekty\WŁASNE\Zin-Service Images\Uploaded\owczarek.png";
-            //var fileStream = new FileStream(path, FileMode.Open);
-            var stream = new Mock<HttpPostedFileWrapper>();
+            var path = @"D:\Projekty\WŁASNE\Zin-Service Images\Uploaded\rozklad.png";
+            var fileStream = new FileStream(path, FileMode.Open);
+            //var stream = new Mock<HttpPostedFileWrapper>();
             var uploadedFile = new Mock<HttpPostedFileBase>();
-            uploadedFile.Setup(f => f.FileName).Returns("owczarek.png");
+            uploadedFile.Setup(f => f.FileName).Returns("rozklad.png");
             uploadedFile.Setup(f => f.ContentType).Returns("image/png");
-            //uploadedFile.Setup(f => f.InputStream).Returns(fileStream);
+            uploadedFile.Setup(f => f.InputStream).Returns(fileStream);
             uploadedFile.Setup(f => f.ContentLength).Returns(1000);
+            fileStream.Close();
+            fileStream.Dispose();
 
-            // Act and Assert exception
+            // Act
+            writeUploadedImage.StoreUploadedImage(uploadedFile.Object);
+
+            // Assert
             Assert.IsFalse(readUploadedImage.CheckIsFileExist(uploadedFile.Name));
-            //fileStream.Close();
-            //fileStream.Dispose();
         }
     }
 }
