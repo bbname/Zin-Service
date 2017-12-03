@@ -55,6 +55,11 @@
     <Compile Include="Cookie\ReaderCookie\ReadCookie.cs" />
     <Compile Include="Cookie\WriterCookie\IWriteCookie.cs" />
     <Compile Include="Cookie\WriterCookie\WriteCookie.cs" />
+    <Compile Include="CustomExceptions\CookieNotExistsException.cs" />
+    <Compile Include="Logger\ReaderLog\IReadLog.cs" />
+    <Compile Include="Logger\ReaderLog\ReadLog.cs" />
+    <Compile Include="Logger\WriterLog\IWriteLog.cs" />
+    <Compile Include="Logger\WriterLog\WriteLog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

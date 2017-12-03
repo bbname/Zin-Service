@@ -12,7 +12,7 @@ namespace Zin_Service.Tests.BusinessLogic
     public class ReadCookieTest
     {
         [Test]
-        public void CheckIfCookieExist_StringIsNull_ExceptionThrown()
+        public void IsCookieExists_StringIsNull_ExceptionThrown()
         {
             // Arrange
             IReadCookie readCookie = new ReadCookie();
@@ -20,11 +20,11 @@ namespace Zin_Service.Tests.BusinessLogic
             var context = new Mock<HttpContextBase>();
 
             // Act and Assert exception
-            Assert.Throws<ArgumentNullException>(() => readCookie.CheckIfCookieExist(context.Object,cookieName));
+            Assert.Throws<ArgumentNullException>(() => readCookie.IsCookieExists(context.Object,cookieName));
         }
 
         [Test]
-        public void CheckIfCookieExist_StringIsEmpty_ExceptionThrown()
+        public void IsCookieExists_StringIsEmpty_ExceptionThrown()
         {
             // Arrange
             IReadCookie readCookie = new ReadCookie();
@@ -32,22 +32,22 @@ namespace Zin_Service.Tests.BusinessLogic
             var context = new Mock<HttpContextBase>();
 
             // Act and Assert exception
-            Assert.Throws<ArgumentNullException>(() => readCookie.CheckIfCookieExist(context.Object, cookieName));
+            Assert.Throws<ArgumentNullException>(() => readCookie.IsCookieExists(context.Object, cookieName));
         }
 
         [Test]
-        public void CheckIfCookieExist_ContextIsNull_ExceptionThrown()
+        public void IsCookieExists_ContextIsNull_ExceptionThrown()
         {
             // Arrange
             IReadCookie readCookie = new ReadCookie();
             string cookieName = "randomCookieName";
 
             // Act and Assert exception
-            Assert.Throws<ArgumentNullException>(() => readCookie.CheckIfCookieExist(null, cookieName));
+            Assert.Throws<ArgumentNullException>(() => readCookie.IsCookieExists(null, cookieName));
         }
 
         [Test]
-        public void CheckIfCookieExist_StringIsUploadedFile_True()
+        public void IsCookieExists_StringIsUploadedFile_True()
         {
             // hanselman
             // http://www.hanselman.com/blog/ABackToBasicsCaseStudyImplementingHTTPFileUploadWithASPNETMVCIncludingTestsAndMocks.aspx
@@ -66,14 +66,14 @@ namespace Zin_Service.Tests.BusinessLogic
             request.Setup(req => req.Cookies).Returns(cookies);
 
             // Act
-            bool actualValue = readCookie.CheckIfCookieExist(context.Object, cookieName);
+            bool actualValue = readCookie.IsCookieExists(context.Object, cookieName);
 
             // Assert
             Assert.AreEqual(expectedValue, actualValue);
         }
 
         [Test]
-        public void CheckIfCookieExist_StringIsNotUploadedFile_False()
+        public void IsCookieExists_StringIsNotUploadedFile_False()
         {
             // hanselman
             // http://www.hanselman.com/blog/ABackToBasicsCaseStudyImplementingHTTPFileUploadWithASPNETMVCIncludingTestsAndMocks.aspx
@@ -93,7 +93,7 @@ namespace Zin_Service.Tests.BusinessLogic
             request.Setup(req => req.Cookies).Returns(cookies);
 
             // Act
-            bool actualValue = readCookie.CheckIfCookieExist(context.Object, cookieNameInvalid);
+            bool actualValue = readCookie.IsCookieExists(context.Object, cookieNameInvalid);
 
             // Assert
             Assert.AreEqual(expectedValue, actualValue);
