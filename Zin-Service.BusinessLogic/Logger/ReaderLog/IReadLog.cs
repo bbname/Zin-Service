@@ -2,7 +2,7 @@
 {
     public interface IReadLog
     {
-        bool IsFileLogExist();
+        bool IsFileLogExists();
         bool IsFileLogOpen();
     }
 }

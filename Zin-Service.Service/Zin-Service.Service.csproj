@@ -69,6 +69,7 @@
   <ItemGroup>
     <Folder Include="Images\Generated\" />
     <Folder Include="Images\Uploaded\" />
+    <Folder Include="Logs\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
